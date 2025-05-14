@@ -133,5 +133,12 @@ public class Main {
          * Контроль — можно добавлять проверку, логи, ограничения
          * Поддержка принципов ООП — чистота архитектуры, удобство масштабирования
          */
+
+        Order order = new Order();
+        order.addOrderItem("Ноутбук", 999.99);
+        order.addOrderItem("Мышка", 25.50);
+        order.addOrderItem("Клавиатура", 25.50);
+
+        System.out.println(order.getOrderInfo());
     }
 }
