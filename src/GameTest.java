@@ -8,7 +8,7 @@ class GameTest {
 
     @Test
     void checkConstructor() {
-        Game game = new Game(0);
+        Game game = new Game();
         int secretNumber = game.getSecretNumber();
 
         assertTrue(secretNumber >= 1 && secretNumber <= 100);
@@ -16,7 +16,7 @@ class GameTest {
 
     @Test
     void checkCorrectGuess() {
-        Game game = new Game(1);
+        Game game = new Game();
         int secretNumber = game.getSecretNumber();
 
         assertEquals("Угадал", game.checkGuess(secretNumber));
@@ -24,7 +24,7 @@ class GameTest {
 
     @Test
     void checkGuessHigher() {
-        Game game = new Game(1);
+        Game game = new Game();
         int secretNumber = game.getSecretNumber();
 
         assertEquals("Меньше", game.checkGuess(Math.min(secretNumber + 1, 100)));
@@ -32,7 +32,7 @@ class GameTest {
 
     @Test
     void checkGuessLower() {
-        Game game = new Game(1);
+        Game game = new Game();
         int secretNumber = game.getSecretNumber();
 
         assertEquals("Больше", game.checkGuess(Math.max(secretNumber - 1, 1)));
@@ -41,7 +41,7 @@ class GameTest {
     @ParameterizedTest
     @ValueSource(ints = {0, -1, 101, 1000})
     void checkInvalidInput(int invalidGuess) {
-        Game game = new Game(0);
+        Game game = new Game();
         Exception exception = assertThrows(IllegalArgumentException.class, () -> game.checkGuess(invalidGuess));
 
         assertEquals("Число должно быть от 1 до 100", exception.getMessage());

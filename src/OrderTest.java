@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class OrderTest {
 
     @Test
-    void InitialState() {
+    void initialState() {
         Order order = new Order();
 
         assertNotNull(order.getOrderId());
@@ -16,7 +16,7 @@ public class OrderTest {
     }
 
     @Test
-    void AddOrderItem() {
+    void addOrderItem() {
         Order order = new Order();
 
         order.addOrderItem("Телевизор", 25000.99);
@@ -30,7 +30,7 @@ public class OrderTest {
     }
 
     @Test
-    void AddOrderItemWithEmptyName() {
+    void addOrderItemWithEmptyName() {
         Order order = new Order();
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> order.addOrderItem("", 100.0));
         IllegalArgumentException exception1 = assertThrows(IllegalArgumentException.class, () -> order.addOrderItem(null, 100.0));
@@ -40,7 +40,7 @@ public class OrderTest {
     }
 
     @Test
-    void AddOrderItemWithZeroPrice() {
+    void addOrderItemWithZeroPrice() {
         Order order = new Order();
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> order.addOrderItem("Товар", -1));
 
@@ -48,7 +48,7 @@ public class OrderTest {
     }
 
     @Test
-    void GetItemsReturnsCopy() {
+    void getItemsReturnsCopy() {
         Order order = new Order();
         order.addOrderItem("Книга", 500.0);
         List<String> items = order.getItems();
@@ -58,7 +58,7 @@ public class OrderTest {
     }
 
     @Test
-    void GetOrderInfoEmpty() {
+    void getOrderInfoEmpty() {
         Order order = new Order();
 
         assertTrue(order.getOrderInfo().contains("Номер заказа: ORD-"));
@@ -67,7 +67,7 @@ public class OrderTest {
     }
 
     @Test
-    void GetOrderInfoWithItems() {
+    void getOrderInfoWithItems() {
         Order order = new Order();
         order.addOrderItem("Мышь", 1500.0);
         order.addOrderItem("Клавиатура", 3500.0);
@@ -79,7 +79,7 @@ public class OrderTest {
     }
 
     @Test
-    void OrderIdUniqueness() {
+    void orderIdUniqueness() {
         Order order1 = new Order();
         Order order2 = new Order();
 

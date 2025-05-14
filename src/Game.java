@@ -3,9 +3,9 @@ import java.util.Random;
 public class Game {
 
     private final int secretNumber;
-    private final  Random random = new Random();
+    private final Random random = new Random();
 
-    public Game(int secretNumber) {
+    public Game() {
        this.secretNumber = random.nextInt(100) + 1;
     }
 
