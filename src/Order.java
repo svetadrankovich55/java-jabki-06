@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class Order {
 
-    private final String orderId;  // read-only
+    private final String orderId;
     private final List<String> items;
     private double totalPrice;
 
@@ -14,8 +14,8 @@ public class Order {
         this.totalPrice = 0.0;
     }
 
-    // Генерация уникального ID заказа
-    //создаёт случайный UUID + преобразует UUID в строку + берёт первые 8 символов из UUID + переводит буквы в верхний регистр
+    /*Генерация уникального ID заказа
+    создаёт случайный UUID + преобразует UUID в строку + берёт первые 8 символов из UUID + переводит буквы в верхний регистр*/
     private String generateOrderId() {
         return "ORD-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
     }
@@ -25,7 +25,8 @@ public class Order {
     }
 
     public List<String> getItems() {
-        return new ArrayList<>(items); // Возвращаем копию для защиты от изменений
+        // Возвращаем копию для защиты от изменений
+        return new ArrayList<>(items);
     }
 
     public double getTotalPrice() {
